@@ -95,7 +95,7 @@ class LeMondeController extends WidgetController {
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[1]/a').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
 		this.mvc.view.update(article.textContent, article.getAttribute("href"));
-		this.mvc.view.update(article2.textContent, article.getAttribute("href"));
+		this.mvc.view.update(article2.textContent, article2.getAttribute("href"));
 	}
 	
 }
