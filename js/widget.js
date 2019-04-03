@@ -51,7 +51,7 @@ class LeMondeView extends WidgetView {
 		super.draw();
 		this.try.footer.innerHTML = "test socket";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
-		Events.on(this.try.footer, "click", event => this.mvc.controller.socketClick());
+		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
 		this.try.stage.appendChild(this.try.footer);
 	}
 
@@ -86,7 +86,11 @@ class LeMondeController extends WidgetController {
 		SocketIO.send("msg", {test: "message"});
 	}
 
-	
+	async maPosition(){
+		navigator.geolocation.getCurrentPosition(function(position) {
+  do_something(position.coords.latitude, position.coords.longitude);
+});
+	}
 
 	
 	
@@ -100,9 +104,6 @@ class LeMondeController extends WidgetController {
 		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
 		this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
 
-		navigator.geolocation.getCurrentPosition(function(position) {
-  do_something(position.coords.latitude, position.coords.longitude);
-});
 
 	}
 	
