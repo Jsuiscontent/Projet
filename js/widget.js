@@ -49,27 +49,18 @@ class LeMondeView extends WidgetView {
 
 	draw() {
 		super.draw();
-		this.link = HH.create("a");
-		SS.style(this.link, {"fontSize": "10px", "textDecoration": "none"});
-		this.stage.appendChild(this.link);
-
-		
-		
 		this.try.footer.innerHTML = "test socket";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
 		Events.on(this.try.footer, "click", event => this.mvc.controller.socketClick());
 		this.try.stage.appendChild(this.try.footer);
 	}
-	
-	update(title, link) {
-		this.link.innerHTML = title;
-		HH.attr(this.link, {"href": "https://www.lemonde.fr" + link, "target": "_blank"});
 
-	}
-
-	update2(title, link) {
-		this.link.innerHTML = title;
-		HH.attr(this.link, {"href": "https://www.lemonde.fr" + link, "target": "_blank"});
+	createLink(title, link) {
+		var link = HH.create("a");
+		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
+		this.stage.appendChild(link);
+		link.innerHTML = title;
+		HH.attr(link, {"href": "https://www.lemonde.fr" + link, "target": "_blank"});
 
 	}
 	
@@ -94,6 +85,10 @@ class LeMondeController extends WidgetController {
 		trace("test socket");
 		SocketIO.send("msg", {test: "message"});
 	}
+
+	
+
+	
 	
 	async load() {
 		let result = await this.mvc.main.dom("https://lemonde.fr"); // load web page
@@ -102,8 +97,13 @@ class LeMondeController extends WidgetController {
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[1]/a').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
-		this.mvc.view.update(article.textContent, article.getAttribute("href"));
-		this.mvc.view.update2(article2.textContent, article2.getAttribute("href"));
+		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
+		this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
+
+		navigator.geolocation.getCurrentPosition(function(position) {
+  do_something(position.coords.latitude, position.coords.longitude);
+});
+
 	}
 	
 }
