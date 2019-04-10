@@ -1,7 +1,7 @@
 class LaFourchetteWidget extends Widget {
 	
 	constructor(id, app) {
-		super(id, LaFourchetteModel, LaFourchetteView, LAFourchetteController, app);
+		super(id, LaFourchetteModel, LaFourchetteView, LaFourchetteController, app);
 	}
 	
 	setUp() {
