@@ -1,7 +1,7 @@
-class LeMondeWidget extends Widget {
+class LaFourchetteWidget extends Widget {
 	
 	constructor(id, app) {
-		super(id, LeMondeModel, LeMondeView, LeMondeController, app);
+		super(id, LaFourchetteModel, LaFourchetteView, LAFourchetteController, app);
 	}
 	
 	setUp() {
@@ -23,7 +23,7 @@ class LeMondeWidget extends Widget {
 	
 }
 
-class LeMondeModel extends WidgetModel {
+class LaFourchetteModel extends WidgetModel {
 	
 	constructor() {
 		super();
@@ -36,7 +36,7 @@ class LeMondeModel extends WidgetModel {
 
 }
 
-class LeMondeView extends WidgetView {
+class LaFourchetteView extends WidgetView {
 	
 	constructor() {
 		super();
@@ -49,7 +49,7 @@ class LeMondeView extends WidgetView {
 
 	draw() {
 		super.draw();
-		this.try.footer.innerHTML = "test socket";
+		this.try.footer.innerHTML = "Ma position actuelle";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
 		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
 		this.try.stage.appendChild(this.try.footer);
@@ -60,13 +60,13 @@ class LeMondeView extends WidgetView {
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
 		link.innerHTML = title;
-		HH.attr(link, {"href": "https://www.lemonde.fr" + link, "target": "_blank"});
+		HH.attr(link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 
 	}
 	
 }
 
-class LeMondeController extends WidgetController {
+class LaFourchetteController extends WidgetController {
 	
 	constructor() {
 		super();
@@ -86,16 +86,16 @@ class LeMondeController extends WidgetController {
 		SocketIO.send("msg", {test: "message"});
 	}
 
-	async maPosition(){
+	async maPosition(){ //Localisation 
 		navigator.geolocation.getCurrentPosition(function(position) {
   do_something(position.coords.latitude, position.coords.longitude);
 });
-	}
+	}           
 
 	
 	
 	async load() {
-		let result = await this.mvc.main.dom("https://lemonde.fr"); // load web page
+		let result = await this.mvc.main.dom("https://www.lafourchette.com/ville/paris/415144"); // load web page
 		let domstr = _atob(result.response.dom); // decode result
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
