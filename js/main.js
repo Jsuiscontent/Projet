@@ -11,7 +11,7 @@ class Main {
 	}
 	
 	load() {
-		let widget = new LeMondeWidget(1, this);
+		let widget = new LaFourchetteWidget(1, this);
 		document.body.appendChild(widget.mvc.view.stage);
 	}
 	
