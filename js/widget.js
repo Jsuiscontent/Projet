@@ -54,13 +54,13 @@ class LaFourchetteView extends WidgetView {
 		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
 		this.try.stage.appendChild(this.try.footer);
 
-		super.draw();
+		
 		this.try.footer.innerHTML = "Ma position actuelle2";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
 		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
 		this.try.stage.appendChild(this.try.footer);
 
-		super.draw();
+		
 		this.try.footer.innerHTML = "Ma position actuelle3";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
 		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
@@ -114,7 +114,7 @@ class LaFourchetteController extends WidgetController {
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[1]/a').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
 		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
-		this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
+		//this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
 
 
 	}
