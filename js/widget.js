@@ -49,32 +49,54 @@ class LaFourchetteView extends WidgetView {
 
 	draw() {
 		super.draw();
-		this.try.footer.innerHTML = "Ma position actuelle";
-		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
-		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
-		this.try.stage.appendChild(this.try.footer);
-
+		this.link = HH.create("a");
+		SS.style(this.link, {"fontSize": "10px", "textDecoration": "none"});
+		this.stage.appendChild(this.link);
 		
-		this.try.footer.innerHTML = "Ma position actuelle2";
+		/*this.try.footer.innerHTML = "test socket";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
-		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
-		this.try.stage.appendChild(this.try.footer);
+		Events.on(this.try.footer, "click", event => this.mvc.controller.socketClick());
+		this.try.stage.appendChild(this.try.footer);*/
+		var btn = HH.create("button");
+		btn.innerHTML = "Paris";
+		Events.on(btn, "click", event => this.mvc.controller.maPosition());
+		this.footer.appendChild(btn);
 
-		
-		this.try.footer.innerHTML = "Ma position actuelle3";
-		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
-		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
-		this.try.stage.appendChild(this.try.footer);
+		var btn1 = HH.create("button");
+		btn1.innerHTML = "Lyon";
+		Events.on(btn1, "click", event => this.mvc.controller.maPosition());
+		this.footer.appendChild(btn1);
+
+		var btn2 = HH.create("button");
+		btn2.innerHTML = "Strasbourg";
+		Events.on(btn2, "click", event => this.mvc.controller.maPosition());
+		this.footer.appendChild(btn2);
+
+		var btn3 = HH.create("button");
+		btn3.innerHTML = "Lille";
+		Events.on(btn3, "click", event => this.mvc.controller.maPosition());
+		this.footer.appendChild(btn3);
+
+		var btn4 = HH.create("button");
+		btn4.innerHTML = "Bordeaux";
+		Events.on(btn4, "click", event => this.mvc.controller.maPosition());
+		this.footer.appendChild(btn4);
+
+	}
+	
+	update(title, link) {
+		this.link.innerHTML = title;
+		HH.attr(this.link, {"href": "https://www.lemonde.fr" + link, "target": "_blank"});
 	}
 
-	createLink(title, link) {
+	/*createLink(title, link) {
 		var link = HH.create("a");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
 		link.innerHTML = title;
 		HH.attr(link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 
-	}
+	}*/
 	
 }
 
