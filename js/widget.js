@@ -68,7 +68,7 @@ class LaFourchetteView extends WidgetView {
 	}
 
 	createLink(title, link) {
-		var link = HH.create("a");
+		var link = HH.create("a[1]");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
 		link.innerHTML = title;
@@ -113,7 +113,7 @@ class LaFourchetteController extends WidgetController {
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[1]/li[1]/div[2]/a[1]').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
-		this.mvc.view.createLink(article.innerHTML = "Matsuri Marbeuf", article.getAttribute("href"));
+		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
 		//this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
 
 
