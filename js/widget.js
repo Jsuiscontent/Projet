@@ -68,7 +68,7 @@ class LaFourchetteView extends WidgetView {
 	}
 
 	createLink(title, link) {
-		var link = HH.create("a[1]");
+		var link = HH.create("a");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
 		link.innerHTML = title;
