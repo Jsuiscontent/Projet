@@ -111,7 +111,7 @@ class LaFourchetteController extends WidgetController {
 		let domstr = _atob(result.response.dom); // decode result
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
-		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[1]/a').firstResult; // find interesting things
+		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[1]/li[1]/div[2]/a[1]').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
 		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
 		//this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
