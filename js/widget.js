@@ -86,7 +86,7 @@ class LaFourchetteView extends WidgetView {
 	
 	update(title, link) {
 		this.link.innerHTML = title;
-		HH.attr(this.link, {"href": "https://www.lemonde.fr" + link, "target": "_blank"});
+		HH.attr(this.link, {"https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 	}
 
 	/*createLink(title, link) {
