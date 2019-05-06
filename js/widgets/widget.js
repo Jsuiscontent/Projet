@@ -191,14 +191,14 @@ class WidgetView extends Try {
 		if(this.try.mvc.main.header) {
 			this.try.header = HH.create("div");
 			SS.style(this.try.header, {"z-index": 100, "userSelect": "none", "width": "100%", "height": "25px", "lineHeight": "25px", "textAlign": "center", "border-top-left-radius": this.try.mvc.main.radius + "px", "border-top-right-radius": this.try.mvc.main.radius + "px","backgroundColor": "#0072ff"});
-			this.try.header.innerHTML = this.try.mvc.main.name;
+			this.try.header.innerHTML = "La Fourchette";
 			this.try.stage.appendChild(this.try.header);
 		}
 		
 		if(this.try.mvc.main.footer) {
 			this.try.footer = HH.create("div");
 			SS.style(this.try.footer, {"position": "absolute", "bottom": "0px", "z-index": 100, "width": "100%", "height": "25px", "lineHeight": "25px", "textAlign": "center", "border-bottom-left-radius": this.try.mvc.main.radius + "px", "border-bottom-right-radius": this.try.mvc.main.radius + "px","backgroundColor": "#0072ff"});
-			this.try.footer.innerHTML = "footer";
+			this.try.footer.innerHTML = " ";
 			this.try.stage.appendChild(this.try.footer);
 		}
 		
