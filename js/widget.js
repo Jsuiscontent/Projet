@@ -53,6 +53,18 @@ class LaFourchetteView extends WidgetView {
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
 		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
 		this.try.stage.appendChild(this.try.footer);
+
+		super.draw();
+		this.try.footer.innerHTML = "Ma position actuelle2";
+		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
+		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
+		this.try.stage.appendChild(this.try.footer);
+
+		super.draw();
+		this.try.footer.innerHTML = "Ma position actuelle3";
+		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
+		Events.on(this.try.footer, "click", event => this.mvc.controller.maPosition());
+		this.try.stage.appendChild(this.try.footer);
 	}
 
 	createLink(title, link) {
