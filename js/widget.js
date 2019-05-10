@@ -147,14 +147,14 @@ class LaFourchetteController extends WidgetController {
 		
 	}
 	
-	onMessage(data) {
+	/*onMessage(data) {
 		trace("received socket msg", data);
 	}
 	
 	socketClick(event) {
 		trace("test socket");
 		SocketIO.send("msg", {test: "message"});
-	}
+	}*/
 
 	async maPosition(){ //Localisation 
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -170,8 +170,9 @@ class LaFourchetteController extends WidgetController {
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[1]/li[1]/div[2]/a[1]').firstResult; // find interesting things
+		
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
-		this.mvc.view.createLinkParis(article.textContent, article.getAttribute("href"));
+		this.mvc.view.createLinkParis(article.innerHTML="Anco", article.getAttribute("href"));
 		//this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
 
 
