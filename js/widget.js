@@ -178,7 +178,9 @@ class LaFourchetteController extends WidgetController {
 		let article8 = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[2]/li[3]').HuitResult;
 		let article9 = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[2]/li[4]').NeufResult;
 		let article10 = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[2]/li[5]').DixResult;
-		this.mvc.view.createLinkParis(article1.textContent, article1.getAttribute("href"));
+		//this.mvc.view.createLinkParis(article1.textContent, article1.getAttribute("href"));
+		this.mvc.view.createLinkParis(article1.innerHTML, article1.getAttribute("href"));
+		this.mvc.view.createLinkParis(article1.innerText, article1.getAttribute("href"));
 		this.mvc.view.createLinkParis(article2.textContent, article2.getAttribute("href"));
 		this.mvc.view.createLinkParis(article3.textContent, article3.getAttribute("href"));
 		this.mvc.view.createLinkParis(article4.textContent, article4.getAttribute("href"));
