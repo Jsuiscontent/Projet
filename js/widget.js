@@ -18,7 +18,7 @@ class LaFourchetteWidget extends Widget {
 		SocketIO.initialize();
 		trace(this);
 		SocketIO.on("msg", this.mvc.controller.onMessage.bind(this));
-		/*this.mvc.controller.load();*/
+		this.mvc.controller.load();
 	}
 	
 }
