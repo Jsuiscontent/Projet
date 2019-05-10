@@ -91,8 +91,8 @@ class LaFourchetteView extends WidgetView {
 		var link = HH.create("a");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
-		link.innerHTML = title;
-		HH.attr(link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
+		this.link.innerHTML = title;
+		HH.attr(this.link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 
 	}
 
@@ -100,8 +100,8 @@ class LaFourchetteView extends WidgetView {
 		var link = HH.create("a");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
-		link.innerHTML = title;
-		HH.attr(link, {"href": "https://www.lafourchette.com/ville/lyon/326512" + link, "target": "_blank"});
+		this.link.innerHTML = title;
+		HH.attr(this.link, {"href": "https://www.lafourchette.com/ville/lyon/326512" + link, "target": "_blank"});
 
 	}
 
