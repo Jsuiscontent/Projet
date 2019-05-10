@@ -147,7 +147,7 @@ class LaFourchetteController extends WidgetController {
 		
 	}
 	
-	/onMessage(data) {
+	onMessage(data) {
 		trace("received socket msg", data);
 	}
 	
