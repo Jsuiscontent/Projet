@@ -93,7 +93,7 @@ class LaFourchetteView extends WidgetView {
 		this.stage.appendChild(link);*/
 		this.link.innerHTML = title;
 		HH.attr(this.link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
-
+		this.stage.appendChild(link);
 	}
 
 	createLinkLyon(title, link) {
