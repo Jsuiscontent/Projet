@@ -84,19 +84,19 @@ class LaFourchetteView extends WidgetView {
 
 	}
 	
-	update(title, link) {
+	/*update(title, link) {
 		this.link.innerHTML = title;
 		HH.attr(this.link, {"https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
-	}
+	}*/
 
-	/*createLink(title, link) {
+	createLink(title, link) {
 		var link = HH.create("a");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
 		link.innerHTML = title;
 		HH.attr(link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 
-	}*/
+	}
 	
 }
 
@@ -135,7 +135,7 @@ class LaFourchetteController extends WidgetController {
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[1]/li[1]/div[2]/a[1]').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
-		this.mvc.view.update(article.textContent, article.getAttribute("href"));
+		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
 		//this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
 
 
