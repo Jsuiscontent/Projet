@@ -49,9 +49,7 @@ class LaFourchetteView extends WidgetView {
 
 	draw() {
 		super.draw();
-		this.link = HH.create("a");
-		SS.style(this.link, {"fontSize": "10px", "textDecoration": "none"});
-		this.stage.appendChild(this.link);
+		
 		
 		/*this.try.footer.innerHTML = "test socket";
 		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
@@ -89,7 +87,7 @@ class LaFourchetteView extends WidgetView {
 		HH.attr(this.link, {"https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 	}*/
 
-	createLink(title, link) {
+	createLinkParis(title, link) {
 		var link = HH.create("a");
 		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
 		this.stage.appendChild(link);
@@ -97,6 +95,44 @@ class LaFourchetteView extends WidgetView {
 		HH.attr(link, {"href": "https://www.lafourchette.com/ville/paris/415144" + link, "target": "_blank"});
 
 	}
+
+	createLinkLyon(title, link) {
+		var link = HH.create("a");
+		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
+		this.stage.appendChild(link);
+		link.innerHTML = title;
+		HH.attr(link, {"href": "https://www.lafourchette.com/ville/lyon/326512" + link, "target": "_blank"});
+
+	}
+
+	createLinkStrasbourg(title, link) {
+		var link = HH.create("a");
+		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
+		this.stage.appendChild(link);
+		link.innerHTML = title;
+		HH.attr(link, {"href": "https://www.lafourchette.com/ville/strasbourg/529135" + link, "target": "_blank"});
+
+	}
+
+	createLinkLille(title, link) {
+		var link = HH.create("a");
+		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
+		this.stage.appendChild(link);
+		link.innerHTML = title;
+		HH.attr(link, {"href": "https://www.lafourchette.com/ville/lille/311886" + link, "target": "_blank"});
+
+	}
+
+	createLinkBordeaux(title, link) {
+		var link = HH.create("a");
+		SS.style(link, {"fontSize": "10px", "textDecoration": "none"});
+		this.stage.appendChild(link);
+		link.innerHTML = title;
+		HH.attr(link, {"href": "https://www.lafourchette.com/ville/bordeaux/60566" + link, "target": "_blank"});
+
+	}
+
+
 	
 }
 
@@ -135,7 +171,7 @@ class LaFourchetteController extends WidgetController {
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="mostBookedPanel"]/div[1]/ul[1]/li[1]/div[2]/a[1]').firstResult; // find interesting things
 		let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[2]/a').secondResult; // find interesting things
-		this.mvc.view.createLink(article.textContent, article.getAttribute("href"));
+		this.mvc.view.createLinkParis(article.textContent, article.getAttribute("href"));
 		//this.mvc.view.createLink(article2.textContent, article2.getAttribute("href"));
 
 
